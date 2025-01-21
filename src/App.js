@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import {  useState } from "react";
 import Xmodal from "./xmodal";
 
 
@@ -6,7 +6,7 @@ import Xmodal from "./xmodal";
 
 
 function App() {
-  const [inputValue, setInputValue] = useState("");
+  
 
   
 
@@ -14,9 +14,9 @@ function App() {
     
       <div className="App">
         <Xmodal />
-        {/* <ResultList /> */}
+        
       </div>
-    // </InputContext.Provider>
+    
   );
 }
 

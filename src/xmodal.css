@@ -5,34 +5,12 @@ button{
     padding: 12px 24px;
     
   }
+
+
+
+
+  
 .modalcontainer{
     text-align: center;
     
 }  
-.modal{
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: auto;
-}
-
-.modal-content{
-    background-color: white;
-    width: 60%;
-    padding: 20px;
-    margin: 20% auto;
-
-    h2 { text-align: center;}
-}
-
-
-
-  
-  
