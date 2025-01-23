@@ -118,7 +118,7 @@ const Model  = ({handleClose,isModalOpen}) => {
 <div className="modal" ref={modalRef}>
 
 <div className="modal-content">
-<form onSubmit={handleSubmit}>
+<form >
 
       <h2>Fill Details</h2>
         
@@ -139,7 +139,7 @@ const Model  = ({handleClose,isModalOpen}) => {
           </div>
         
         <div >
-          <button type="submit" class="btn btn-success">Submit</button>
+          <button type="submit" class="btn btn-success" onClick={handleSubmit}>Submit</button>
           </div>
       </form>
     
