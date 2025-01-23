@@ -128,7 +128,7 @@ const Model  = ({handleClose,isModalOpen}) => {
           <label for="username"><bold>Username:</bold> </label><br/>
             <input type="text"   value={username} onChange={(e)=>setUsername(e.target.value)} id="username"required /><br/>
             <label for="email" ><bold>Email address:</bold> </label><br/>
-            <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)}  id="email"required  />
+            <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)}  id="email" required  />
            
           </div>
           <div class="form-group">
@@ -140,7 +140,7 @@ const Model  = ({handleClose,isModalOpen}) => {
           </div>
         
         <div >
-          <button type="submit" className= "submit-button" onClick={handleSubmit}>Submit</button>
+          <button type="submit" className="submit-button" onClick={handleSubmit}>Submit</button>
           </div>
       </form>
     
