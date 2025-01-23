@@ -5,15 +5,24 @@ import validator from 'validator'
 
 const Model  = ({handleClose,isModalOpen}) => {
   let modalRef = useRef();
-let [email, setEmail ] = useState("");
-let [dob,setDob  ] = useState("");
-let [phone,setPhone ] = useState("");
+  const initialValues = { username: "", email: "", dob: "",phone:"" };
+  const [formValues, setFormValues] = useState(initialValues);
+  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [dob, setDob] = useState('')
+
 
    function handleClickOutside(e) {
           if(isModalOpen && modalRef.current && !modalRef.current.contains(e.target)){
               handleClose()
           }
         }
+
+        const handleChange = (e) => {
+          const { name, value } = e.target;
+          setFormValues({ ...formValues, [name]: value });
+        };
             //      function ValidateEmail(input) {
 
             // var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -23,8 +32,8 @@ let [phone,setPhone ] = useState("");
             //     alert("Valid email address!");
         
             //     document.form1.text1.focus();
-        
-            //     return true;
+
+         //     return true;
         
             // } else {
         
@@ -45,17 +54,58 @@ let [phone,setPhone ] = useState("");
             //   }
             // }
 
-            const validatePhone = (e) => {
-              setPhone(e.target.value);
+            const validate = () => {
+              
             
-              if (validator.isMobilePhone(phone)) {
-                  
-              } else {
-                  
-                alert("Invalid phone number. Please enter a 10-digit phone number.**” ");
-                  
+              if((!email.includes("@"))) {
+                alert(`Please include an @ in the email address.{email} is missing @.`) 
               }
-          }
+              if (!validator.isMobilePhone(phone)) { 
+                alert("Invalid phone number. Please enter a 10-digit phone number.**” ");
+              }}
+                  
+                
+                  
+          //     }
+          
+
+          //   const validatePhone = (e) => {
+          //     setPhone(e.target.value);
+            
+          //     if (validator.isMobilePhone(phone)) {
+                  
+          //     } else {
+                  
+          //       alert("Invalid phone number. Please enter a 10-digit phone number.**” ");
+                  
+          //     }
+          // }
+
+          // const handleChange1 = (e) => {
+          //   const  value  = e.target.value;
+          //   setFormData((prevState) => ({ ...prevState, [e.target.name]: value }));
+          // };  
+    
+        // const handleSubmit = (e) => {
+        //     // Set initial error values to empty
+        //     e.preventDefault();
+            
+          
+        //     // Check if the user has entered both fields correctly
+        //     if (username=== "user" && password=== "password") {
+        //         setError('')
+        //         setOnsubmit(true)
+              
+        //     }else{
+        //         setError('Invalid username or password')
+        //         setOnsubmit(false)
+        //      }}
+        const handleSubmit = (e) => {
+          e.preventDefault();
+          validate()
+          // setIsSubmit(true);
+        };
+      
       
         
         useEffect(() => {
@@ -68,23 +118,24 @@ let [phone,setPhone ] = useState("");
 <div className="modal" ref={modalRef}>
 
 <div className="modal-content">
-      <form>
+<form onSubmit={handleSubmit}>
+
       <h2>Fill Details</h2>
         
               <div class="form-group">
             
           <label for="username"><bold>Username:</bold> </label><br/>
-            <input type="text" class="form-control" id="username" aria-describedby="emailHelp" /><br/>
+            <input type="text"   value={username} onChange={(e)=>setUsername(e.target.value)} required /><br/>
             <label for="email" ><bold>Email address:</bold> </label><br/>
-            <input type="email" value={email} class="form-control" id="email" aria-describedby="emailHelp"/>
+            <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)}  id="email"required  />
            
           </div>
           <div class="form-group">
             <label for="phone"><bold>Phone Number:</bold></label><br/>
-            <input type="tel" value={phone}class="form-control" id="phone" onChange={(e) => validatePhone(e)}/>     </div>
+            <input type="tel" value={phone}id="phone" onChange={(e)=>setPhone(e.target.value)} required />     </div>
           <div class="form-group">
             <label for="dob"><bold>Date of Birth:</bold></label><br/>
-            <input type="date" value={dob} name="bday" id="dob" />
+            <input type="date" value={dob} name="bday" id="dob" onChange={(e)=>setDob(e.target.value)} required />
           </div>
         
         <div >
