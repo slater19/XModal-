@@ -139,7 +139,7 @@ const Model  = ({handleClose,isModalOpen}) => {
           </div>
         
         <div >
-          <button type="submit" class="btn btn-success" onClick={handleSubmit}>Submit</button>
+          <button type="submit" className= "submit-button" onClick={handleSubmit}>Submit</button>
           </div>
       </form>
     
