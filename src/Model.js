@@ -125,14 +125,14 @@ const Model  = ({handleClose,isModalOpen}) => {
               <div class="form-group">
             
           <label for="username"><bold>Username:</bold> </label><br/>
-            <input type="text"   value={username} onChange={(e)=>setUsername(e.target.value)} required /><br/>
+            <input type="text"   value={username} onChange={(e)=>setUsername(e.target.value)} id="username"required /><br/>
             <label for="email" ><bold>Email address:</bold> </label><br/>
             <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)}  id="email"required  />
            
           </div>
           <div class="form-group">
             <label for="phone"><bold>Phone Number:</bold></label><br/>
-            <input type="tel" value={phone}id="phone" onChange={(e)=>setPhone(e.target.value)} required />     </div>
+            <input type="tel" value={phone}id="phone" onChange={(e)=>setPhone(e.target.value)} required  />     </div>
           <div class="form-group">
             <label for="dob"><bold>Date of Birth:</bold></label><br/>
             <input type="date" value={dob} name="bday" id="dob" onChange={(e)=>setDob(e.target.value)} required />
