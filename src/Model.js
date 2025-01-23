@@ -61,7 +61,7 @@ const Model  = ({handleClose,isModalOpen}) => {
                 // alert(`Please include an @ in the email address.{email} is missing @.`) 
                 alert("Invalid email. Please check your email address") 
               }
-              if (!validator.isMobilePhone(phone)) { 
+              if (phone!="" && !validator.isMobilePhone(phone)) { 
                 alert("Invalid phone number. Please enter a 10-digit phone number.**” ");
               }}
                   
